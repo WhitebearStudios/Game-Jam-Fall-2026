@@ -1,16 +1,16 @@
-Game Jam Fall 2026
+\###Game Jam Fall 2026###
 
 
 
-Theme: rhythm
+\######Theme: rhythm######
 
-Title: Jam Game
+\######Title: Jam Game######
 
 
 
-Todo:
+\#####Todo:#####
 
-Sprites:
+\######Sprites:######
 
 Claw
 
@@ -24,7 +24,7 @@ Background
 
 
 
-Events:
+\######Events:######
 
 Activate a machine
 
