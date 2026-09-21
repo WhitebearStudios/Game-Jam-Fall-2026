@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 254687867}
   - component: {fileID: 254687866}
+  - component: {fileID: 254687868}
   m_Layer: 0
   m_Name: Jar
   m_TagString: Untagged
@@ -205,12 +206,26 @@ Transform:
   m_GameObject: {fileID: 254687865}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.13, y: 3.34, z: 0}
+  m_LocalPosition: {x: 7.13, y: 3.25, z: 0}
   m_LocalScale: {x: 0.7867, y: 0.5498, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &254687868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254687865}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d192f1646a7da2b48875c5619a9efb54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Jam
+  dstAlongPathNormalized: 0
+  lastNodePassed: 0
 --- !u!1 &399634009
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +885,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1815b80e0ec98ea49b56d0f21f8eca85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  jams: []
+  jams:
+  - {fileID: 254687868}
+  jamPrefab: {fileID: 0}
+  jamPath: {fileID: 1589393353}
+  conveyorSpeeds:
+  - 15
+  - 10
+  - 5
+  slideSpeed: 10
+  jamPosOffset: {x: 0, y: 0.4, z: 0}
 --- !u!1 &1057822981
 GameObject:
   m_ObjectHideFlags: 0

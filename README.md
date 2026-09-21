@@ -38,3 +38,13 @@ Stop all jars on conveyor line when a machine is activated
 
 Score based on jam quality
 
+
+
+\# Sounds:
+
+Music to the beat of the rhythm
+
+Mechanical wirring, clanking sfx
+
+Jam dispenser sfx (liquid squelching?)
+
