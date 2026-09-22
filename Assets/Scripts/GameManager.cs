@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public List<Jam> jams;
     public GameObject jamPrefab;
+    public Transform jamParent;
 
     public static GameManager instance;
     //The path alternates conveyors and slides in between nodes. Start with a conveyor
@@ -16,8 +17,25 @@ public class GameManager : MonoBehaviour
     public float[] conveyorSpeeds;
     [SerializeField] float slideSpeed;
     public Vector3 jamPosOffset;
-
     private float pathLength;
+
+    public float jamSpawnRate = 1;
+    private float jamSpawnTimer = 0f;
+
+
+    [SerializeField] private TMPro.TextMeshProUGUI moneyText;
+    public int money;
+
+
+
+
+
+    private void Awake()
+    {
+        instance = this;
+
+        jamSpawnTimer = 1f / jamSpawnRate;
+    }
 
     private void Start()
     {
@@ -29,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         foreach (Jam jam in jams)
         {
-            if (jam.dstAlongPathNormalized >= 1) continue;
+
             float mySpeed = slideSpeed;
 
             //Find which part of the path the jam is on
@@ -47,6 +65,29 @@ public class GameManager : MonoBehaviour
 
             float3 newJamSplinePos = jamSpline.EvaluatePosition(jam.dstAlongPathNormalized);
             jam.transform.position = new Vector3(newJamSplinePos.x, newJamSplinePos.y, newJamSplinePos.z) + jamPath.transform.position + jamPosOffset;
+
+
+            if (jam.dstAlongPathNormalized >= 1)
+            {
+                //TODO: increase score or money
+                jam.JamFinishedConveyorTrip();
+            }
+
+            money++;
+            moneyText.text = "$" + money.ToString();
+        }
+
+        jams.RemoveAll(jam => jam.dstAlongPathNormalized >= 1);
+
+        jamSpawnTimer -= Time.deltaTime;
+        if (jamSpawnTimer <= 0)
+        {
+            GameObject newJam = Instantiate(jamPrefab, jamParent);
+            newJam.transform.position = jamSpline.EvaluatePosition(0);
+
+            jams.Add(newJam.GetComponent<Jam>());
+
+            jamSpawnTimer = 1f / jamSpawnRate;
         }
     }
 }

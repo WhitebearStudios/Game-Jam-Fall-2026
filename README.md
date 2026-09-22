@@ -10,17 +10,17 @@
 
 ##### Todo:
 
+
+
+Make sure animated sprites are exported as spritemaps
+
+
+
 ###### Sprites:
-
-Claw
-
-Jam Dispenser
 
 Lid putter-onner
 
 Labeler
-
-Background
 
 
 
