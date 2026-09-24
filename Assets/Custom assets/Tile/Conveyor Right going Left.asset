@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13b75c95f34a00d4e8c04f76b73312e6, type: 3}
+  m_Name: Conveyor Right going Left
+  m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
+  m_AnimatedSprites:
+  - {fileID: -5026328356623273269, guid: e4d1f9597ff8abe4d93b647fc1137b00, type: 3}
+  - {fileID: 8256522726936896420, guid: e4d1f9597ff8abe4d93b647fc1137b00, type: 3}
+  - {fileID: 5947737107117657042, guid: e4d1f9597ff8abe4d93b647fc1137b00, type: 3}
+  - {fileID: -5031338404370974735, guid: e4d1f9597ff8abe4d93b647fc1137b00, type: 3}
+  - {fileID: 7580182722222647575, guid: e4d1f9597ff8abe4d93b647fc1137b00, type: 3}
+  - {fileID: 1947229515390215584, guid: e4d1f9597ff8abe4d93b647fc1137b00, type: 3}
+  - {fileID: -2276081823767263505, guid: e4d1f9597ff8abe4d93b647fc1137b00, type: 3}
+  - {fileID: -2180712274395235674, guid: e4d1f9597ff8abe4d93b647fc1137b00, type: 3}
+  m_MinSpeed: 25
+  m_MaxSpeed: 25
+  m_AnimationStartTime: 0
+  m_AnimationStartFrame: 0
+  m_TileColliderType: 0
+  m_TileAnimationFlags: 0

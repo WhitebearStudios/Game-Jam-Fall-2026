@@ -51,10 +51,10 @@ public class GameManager : MonoBehaviour
             float mySpeed = slideSpeed;
 
             //Find which part of the path the jam is on
-            if(jam.lastNodePassed % 2 == 0)
+            if(jam.lastNodePassed % 3 == 0)
             {
                 //On a conveyor.
-                mySpeed = conveyorSpeeds[jam.lastNodePassed / 2];
+                mySpeed = conveyorSpeeds[jam.lastNodePassed / 3];
 
                 
             }
