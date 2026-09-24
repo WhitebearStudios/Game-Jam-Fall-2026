@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Claw
   m_EditorClassIdentifier: Unity.2D.Tilemap.Extras::UnityEngine.Tilemaps.AnimatedTile
   m_AnimatedSprites:
-  - {fileID: -8207703759208742904, guid: 9f9981abe51363a49967ee12dcf5f7fe, type: 3}
-  - {fileID: -4646090238747268669, guid: 9f9981abe51363a49967ee12dcf5f7fe, type: 3}
   - {fileID: -1432537902509144877, guid: b4900ef5c9015cd4e8f9e9d22e85117c, type: 3}
   - {fileID: -1904422644642650415, guid: b4900ef5c9015cd4e8f9e9d22e85117c, type: 3}
   - {fileID: -6354916197315035040, guid: b4900ef5c9015cd4e8f9e9d22e85117c, type: 3}
@@ -28,11 +26,9 @@ MonoBehaviour:
   - {fileID: -6354916197315035040, guid: b4900ef5c9015cd4e8f9e9d22e85117c, type: 3}
   - {fileID: -1904422644642650415, guid: b4900ef5c9015cd4e8f9e9d22e85117c, type: 3}
   - {fileID: -1432537902509144877, guid: b4900ef5c9015cd4e8f9e9d22e85117c, type: 3}
-  - {fileID: -4646090238747268669, guid: 9f9981abe51363a49967ee12dcf5f7fe, type: 3}
-  - {fileID: -8207703759208742904, guid: 9f9981abe51363a49967ee12dcf5f7fe, type: 3}
-  m_MinSpeed: 10
-  m_MaxSpeed: 10
+  m_MinSpeed: 6.5
+  m_MaxSpeed: 6.5
   m_AnimationStartTime: 0
-  m_AnimationStartFrame: 0
+  m_AnimationStartFrame: 12
   m_TileColliderType: 0
   m_TileAnimationFlags: 0

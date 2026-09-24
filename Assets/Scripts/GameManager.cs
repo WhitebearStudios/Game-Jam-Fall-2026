@@ -2,6 +2,8 @@ using UnityEngine;
 using UnityEngine.Splines;
 using Unity.Mathematics;
 using System.Collections.Generic;
+using UnityEngine.InputSystem;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,10 +26,16 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField] private TMPro.TextMeshProUGUI moneyText;
+    public Transform gameCanvas;
     public int money;
 
 
+    public float factorySpeed = 0.5f, tolerance = 0.5f;
+    private InputAction dispenseAction, screwAction, labelAction;
 
+    [SerializeField] GameObject jamFlowAnim;
+    [SerializeField] GameObject jamLidPutterOnner;
+    [SerializeField] GameObject jamLabeler;
 
 
     private void Awake()
@@ -35,18 +43,41 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         jamSpawnTimer = 1f / jamSpawnRate;
+
+        dispenseAction = InputSystem.actions.FindAction("Dispense");
+        screwAction = InputSystem.actions.FindAction("Screw");
+        labelAction = InputSystem.actions.FindAction("Label");
     }
 
     private void Start()
     {
         pathLength = jamPath.GetComponent<SplineContainer>().CalculateLength();
         jamSpline = jamPath.GetComponent<SplineContainer>().Spline;
+
+        jamLidPutterOnner.GetComponent<Animator>().StopPlayback();
+        jamLabeler.GetComponent<Animator>().StopPlayback();
+
+        moneyText.text = "$0";
     }
 
     private void Update()
     {
+        if (dispenseAction.WasPressedThisFrame())
+        {
+            StartCoroutine(DispenseJam());
+        }
+        if (screwAction.WasPressedThisFrame())
+        {
+            
+        }
+        if (labelAction.WasPressedThisFrame())
+        {
+            
+        }
+
         foreach (Jam jam in jams)
         {
+            if (jam.startMovingDelay > 0) continue;
 
             float mySpeed = slideSpeed;
 
@@ -72,9 +103,6 @@ public class GameManager : MonoBehaviour
                 //TODO: increase score or money
                 jam.JamFinishedConveyorTrip();
             }
-
-            money++;
-            moneyText.text = "$" + money.ToString();
         }
 
         jams.RemoveAll(jam => jam.dstAlongPathNormalized >= 1);
@@ -83,11 +111,47 @@ public class GameManager : MonoBehaviour
         if (jamSpawnTimer <= 0)
         {
             GameObject newJam = Instantiate(jamPrefab, jamParent);
-            newJam.transform.position = jamSpline.EvaluatePosition(0);
+            newJam.transform.position = jamPath.transform.position;
 
             jams.Add(newJam.GetComponent<Jam>());
 
             jamSpawnTimer = 1f / jamSpawnRate;
+        }
+    }
+
+    public void AddScore(int score)
+    {
+        money += score;
+        moneyText.text = "$" + money.ToString();
+    }
+
+    IEnumerator DispenseJam()
+    {
+        jamFlowAnim.SetActive(true);
+        jamFlowAnim.GetComponent<AudioSource>().Play();
+
+        LookForJamAtX(0, jamFlowAnim.transform.position.x);
+
+        yield return new WaitForSeconds(factorySpeed);
+
+        jamFlowAnim.SetActive(false);
+    }
+
+    void LookForJamAtX(int level, float x)
+    {
+        foreach (Jam jam in jams)
+        {
+            int jamLevel = Mathf.FloorToInt(jam.lastNodePassed / 3);
+            if (level != jamLevel) continue;
+
+            float xDiff = Mathf.Abs(jam.transform.position.x - x);
+
+            if (xDiff < tolerance)
+            {
+                float quality = 1 - xDiff / tolerance;
+                print("Quality: " + quality);
+                jam.stepQuality.Add(quality);
+            }
         }
     }
 }

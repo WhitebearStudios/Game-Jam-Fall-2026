@@ -80,7 +80,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 11
+  m_SortingOrder: 0
   m_MaskInteraction: 0
   m_Sprite: {fileID: -1769505799990949161, guid: b39bb422d36e60c46ae3c5b4c26302f4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -105,5 +105,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d192f1646a7da2b48875c5619a9efb54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Jam
+  moneyGainedLabel: {fileID: 1993490132926156146, guid: 777433855c51d454a9e2e1c9416ac23c, type: 3}
   dstAlongPathNormalized: 0
   lastNodePassed: 0
+  timeBeforeSortingFront: 1
+  startMovingDelay: 1.5
+  stepQuality: []
