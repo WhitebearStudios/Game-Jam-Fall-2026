@@ -48,3 +48,11 @@ Mechanical wirring, clanking sfx
 
 Jam dispenser sfx (liquid squelching?)
 
+
+
+Attribution
+
+Truck by https://www.vecteezy.com/members/collaborapix
+
+Factory boxes and barrels: https://free-game-assets.itch.io/free-industrial-zone-tileset-pixel-art
+

@@ -35,8 +35,8 @@ public class MoneyGain : MonoBehaviour
         }
     }
 
-    public void SetMoney(int money)
+    public void SetMoney(float money)
     {
-        text.text = "$"+money.ToString();
+        text.text = "$"+money.ToString("F2");
     }
 }
